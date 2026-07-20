@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engagement - Smart Observation</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="lite.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="engagementHeader">
+      <div class="headerIdentity">
+        <img src="keo.png" alt="KEO logo" class="headerLogo keoLogo" />
+        <div class="titleBlock">
+          <h1>Engagement</h1>
+          <p>Smart OSH Observation &amp; Corrective Action</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <h2>Report Header</h2>
+      <div class="grid four">
+        <label>Project Title<input id="projectTitle" value="Saadiyat Lagoons Packages 02 & 04 villas and infrastructure work." /></label>
+        <label>Date<input id="inspectionDate" type="date" /></label>
+        <label>Time<input id="inspectionTime" type="time" value="09:30" /></label>
+        <label>Reference No.<input id="referenceNo" placeholder="225" /></label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="sectionHead"><h2>Attendees</h2><button id="addAttendeeBtn" class="btn secondary">+ Add Attendee</button></div>
+      <table class="simple"><thead><tr><th>Name</th><th>Designation</th><th>Entity</th><th></th></tr></thead><tbody id="attendeeRows"></tbody></table>
+    </section>
+
+    <section class="panel observationPanel">
+      <div id="observationsContainer" class="obsList"></div>
+    </section>
+
+    <div id="statusBox" class="status">Ready.</div>
+  </main>
+
+  <template id="attendeeTpl"><tr><td><input class="attendeeName" placeholder="Name"></td><td><input class="attendeeDesignation" placeholder="Designation"></td><td><select class="attendeeEntity"><option>KEO</option><option>Hill</option><option>TAJV</option><option>Innovo</option><option>Hi-Tech</option><option>Aldar</option></select></td><td><button type="button" class="remove small">×</button></td></tr></template>
+
+  <template id="observationTpl">
+    <article class="obsCard">
+      <div class="obsHead"><h3>Observation <span class="obsNo"></span></h3><button type="button" class="remove removeObs">×</button></div>
+      <div class="grid visibleFields">
+        <label>Package<select class="package"></select></label>
+        <label>Cluster / Area<select class="cluster"></select></label>
+        <label>Villa / Location<input class="villaNo" placeholder="Villa 75 / Block 01" /></label>
+        <label class="hiddenEngineControl">Risk Category<select class="riskCategory"><option>High</option><option>Medium</option><option>Low</option></select></label>
+        <label>By Whom / Action Owner<select class="actionOwner"><option>TAJV</option><option>Innovo</option><option>TAJV / Hi-tech Project Management</option><option>PM / CM / HSE</option></select></label>
+      </div>
+
+      <div class="hiddenEngineFields" aria-hidden="true">
+        <label>Observation Category<select class="observationCategory"></select></label>
+        <label>Response Category<select class="responseCategory"><option>A</option><option>B</option><option>C</option><option>D</option></select></label>
+        <label>Likely Root Cause<select class="rootCause"></select></label>
+        <label>Date Closed<input class="dateClosed" type="date" /></label>
+      </div>
+
+      <label class="manualBox">Your Manual Observation Comments / Short Site Notes
+        <textarea class="manualComments" rows="4" placeholder="Write the short site observation here..."></textarea>
+      </label>
+      <div class="smartbar">
+        <button type="button" class="btn primary smartImprove hiddenEngineControl" tabindex="-1" aria-hidden="true">Smart Expand</button>
+        <span class="areaPreview">Area: -</span>
+        <span class="autoStatus" role="status" aria-live="polite">Automatic smart generation enabled</span>
+      </div>
+
+      <label class="sourceOutput hiddenSource">Observation Description<textarea class="observationDescription" rows="7"></textarea></label>
+      <label class="sourceOutput hiddenSource">Action to be taken as agreed, but not limited to<textarea class="preventiveAction" rows="8"></textarea></label>
+
+      <section class="combinedSection">
+        <div class="combinedHeader">
+          <label for="combinedOutput">Observation Description and Action to be Taken</label>
+          <button type="button" class="btn copyBtn">Copy Text</button>
+        </div>
+        <textarea id="combinedOutput" class="combinedOutput" rows="16" placeholder="The smart observation description and specific action required will appear together here."></textarea>
+        <span class="copyStatus" role="status" aria-live="polite"></span>
+      </section>
+
+      <label class="hiddenSource">Legal/other Requirements<div class="legalToolbar"><button type="button" class="btn light selectAllLegal">Select All</button><button type="button" class="btn light clearLegal">Clear</button></div><div class="legalGrid"></div><textarea class="legalCustom" rows="3"></textarea></label>
+      <label class="hiddenSource">Evidence Photos<input class="evidencePhotos" type="file" accept="image/*" multiple /><div class="photoPreview"></div></label>
+    </article>
+  </template>
+
+  <button id="addObservationBtn" class="systemHidden" type="button">+ Add Observation</button>
+  <button id="generateDocBtn" class="systemHidden" type="button">Generate Word File</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+  <script src="app.js"></script>
+  <script src="lite.js"></script>
+</body>
+</html>

@@ -1,20 +1,27 @@
-KEO Safety Awareness - FINAL Small GitHub Version
+ALDAR / KEO ENGAGEMENT SMART OBSERVATION LITE - V15
 
-This version contains compressed videos for GitHub browser upload.
+Visible page fields:
+- Package
+- Cluster / Area
+- Villa / Location
+- By Whom / Action Owner
+- Manual Observation Comments / Short Site Notes
+- Combined Observation Description and Action to be Taken
+- Copy Text button
 
-Included:
-- index.html
-- styles.css
-- script.js
-- assets/english.mp4
-- assets/arabic.mp4
-- assets/hindi.mp4
-- assets/keo-logo.svg
-- assets/poster.jpg
+Hidden from the page:
+- ALDAR logo
+- Risk Category
+- Observation Category
+- Response Category
+- Likely Root Cause
+- Date Closed
+- Smart Expand button
 
-Upload Instructions:
-1. Extract the ZIP.
-2. Upload ALL extracted files and folders to GitHub.
-3. Confirm index.html is in root.
-4. Settings > Pages > Deploy from a branch > main /(root).
-5. Save and wait 1-3 minutes.
+The hidden intelligent engine remains active. After typing the manual observation, the system automatically generates the specific observation description, consequences and corrective actions in one combined editable box.
+
+HOW TO OPEN
+1. Double-click start_local_server.bat.
+2. Open the local address displayed in the command window.
+3. Type the short observation and pause briefly; the output generates automatically.
+4. Use Copy Text to copy the complete wording.
